@@ -1,0 +1,20 @@
+<div class="regiter-page">
+    <div class="register-form">
+        <form>
+            <div class="form-control">
+                <label for="fullname">Fullname</label>
+                <input type="text" name="fullname" id="fullname" placeholder="ente your fullname" [(ngModel)]="fullname">
+            </div>
+            <div class="form-control">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="ente your Phone Number" [(ngModel)]="phoneNumber">
+            </div>
+            <div class="form-control">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="ente password" [(ngModel)]="password">
+            </div>
+            <input class="btn btn-block" type="submit" value="register" >
+        </form>
+    </div>
+    {{fullname}}
+</div>
