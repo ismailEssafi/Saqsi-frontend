@@ -10,7 +10,11 @@ export class SignupComponent {
   phoneNumber: string = '';
   password: string = '';
 
-  
+  onSubmit() : void{
+    console.log(this.fullname)
+    console.log(this.phoneNumber)
+    console.log(this.password)
+  }
 
   
 }
