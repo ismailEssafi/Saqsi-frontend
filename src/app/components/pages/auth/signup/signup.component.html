@@ -1,19 +1,43 @@
 <div class="regiter-page">
-    <div class="register-form">
-        <form>
+    <div class="register-form" >
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <div class="form-control">
                 <label for="fullname">Fullname :</label>
-                <input type="text" name="fullname" id="fullname" placeholder="ente your fullname" [(ngModel)]="fullname">
+                <input type="text" name="fullname" id="fullname" formControlName="fullname" placeholder="ente your fullname">
+                    <div *ngIf="fullname?.invalid && (fullname?.dirty || fullname?.touched)" class="alert alert-danger">
+                        <div *ngIf="fullname?.errors?.['required']">
+                            Fullname is required.
+                        </div>
+                        <div *ngIf="fullname?.errors?.['pattern']">
+                            Fullname must be like this (ismail essafi, walid ...)
+                        </div>
+                    </div>
             </div>
             <div class="form-control">
                 <label for="phoneNumber">Phone Number :</label>
-                <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="ente your Phone Number" [(ngModel)]="phoneNumber">
+                <input type="tel" name="phoneNumber" id="phoneNumber" formControlName="phoneNumber" placeholder="ente your Phone Number">
+                    <div *ngIf="phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched)" class="alert alert-danger">
+                        <div *ngIf="phoneNumber?.errors?.['required']">
+                            PhoneNumber is required.
+                        </div>
+                        <div *ngIf="phoneNumber?.errors?.['pattern']">
+                            PhoneNumber must be like this 0618139890
+                        </div>
+                    </div>
             </div>
             <div class="form-control">
                 <label for="password">Password :</label>
-                <input type="password" name="password" id="password" placeholder="ente password" [(ngModel)]="password">
+                <input type="password" name="password" id="password" formControlName="password" placeholder="ente password">
+                    <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="alert alert-danger">
+                        <div *ngIf="password?.errors?.['required']">
+                            Password is required.
+                        </div>
+                        <div *ngIf="password?.errors?.['minlength']">
+                            Password must contain 10 character minimum
+                        </div>
+                    </div>
             </div>
-            <input  (click)="onSubmit()" class="submit" type="submit" value="register" >
+            <input class="submit" type="submit" value="register" >
         </form>
     </div>
 </div>

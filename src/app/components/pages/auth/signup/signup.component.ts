@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-signup',
@@ -6,14 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  fullname: string = 'test';
-  phoneNumber: string = '';
-  password: string = '';
+  constructor(private fb: FormBuilder){}
+
+  registerForm = this.fb.group({
+    fullname: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]{3,20}$')]],
+    phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+    password: ['', [Validators.required, Validators.minLength(10)]]
+  }) 
+  get fullname() { return this.registerForm.get('fullname')};
+  get phoneNumber() { return this.registerForm.get('phoneNumber')};
+  get password() { return this.registerForm.get('password')};
 
   onSubmit() : void{
-    console.log(this.fullname)
-    console.log(this.phoneNumber)
-    console.log(this.password)
+    if (!this.registerForm.invalid){
+      console.log(this.registerForm.value)
+    }
   }
 
   
