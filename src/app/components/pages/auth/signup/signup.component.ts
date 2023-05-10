@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms'
+import { AuthService } from '../../../../services/auth.service'
 
 @Component({
   selector: 'app-signup',
@@ -7,7 +8,7 @@ import { FormBuilder, Validators } from '@angular/forms'
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  constructor(private fb: FormBuilder){}
+  constructor(private fb: FormBuilder, private authService : AuthService){}
 
   registerForm = this.fb.group({
     fullname: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]{3,20}$')]],
@@ -21,6 +22,7 @@ export class SignupComponent {
   onSubmit() : void{
     if (!this.registerForm.invalid){
       console.log(this.registerForm.value)
+      this.authService.register();
     }
   }
 
