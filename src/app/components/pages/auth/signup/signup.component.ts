@@ -21,8 +21,9 @@ export class SignupComponent {
 
   onSubmit() : void{
     if (!this.registerForm.invalid){
-      console.log(this.registerForm.value)
-      this.authService.register();
+      this.authService.register(this.registerForm.value).subscribe((user) => {
+        console.log(user);
+      });
     }
   }
 
