@@ -6,14 +6,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { SignupComponent } from './components/pages/auth/signup/signup.component';
+import { SignupComponent } from './components/pages/signup/signup.component';
 import { HomeComponent } from './components/pages/home/home.component';
+import { SmsVerificationComponent } from './components/pages/sms-verification/sms-verification.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     HomeComponent,
+    SmsVerificationComponent,
   ],
   imports: [
     BrowserModule,

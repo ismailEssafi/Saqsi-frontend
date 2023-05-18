@@ -1,0 +1,21 @@
+<div class="page-in-centre">
+    <div class="dialog">
+      <h3>Please enter the 4-digit verification code we sent via SMS:</h3>
+      <form class="form" [formGroup]="smsForm" (ngSubmit)="onSubmit()">
+        <input type="text" maxLength="1" size="1" min="0" max="9" formControlName="input1" />
+        <input type="text" maxLength="1" size="1" min="0" max="9" formControlName="input2" />
+        <input type="text" maxLength="1" size="1" min="0" max="9" formControlName="input3" />
+        <input type="text" maxLength="1" size="1" min="0" max="9" formControlName="input4" />
+        <div *ngIf="smsForm?.invalid && (smsForm?.dirty || smsForm?.touched)" class="alert alert-danger">
+            <p>must entre 4 numbers</p>
+        </div>
+        <input type="submit" class="btn-form" value="Verify"/>
+      </form>
+      
+      <div>
+        Didn't receive the code?<br />
+        <a href="#">Send code again</a><br />
+        <a href="#">Change phone number</a>
+      </div>
+    </div>
+  </div>
