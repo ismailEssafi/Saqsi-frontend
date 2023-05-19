@@ -12,7 +12,7 @@ export class SignupComponent {
 
   registerForm = this.fb.group({
     fullname: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]{3,20}$')]],
-    phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+    phoneNumber: ['', [Validators.required, Validators.pattern('^0[0-9]{9}$')]],
     password: ['', [Validators.required, Validators.minLength(10)]]
   }) 
   get fullname() { return this.registerForm.get('fullname')};
