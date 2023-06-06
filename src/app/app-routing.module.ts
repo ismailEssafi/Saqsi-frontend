@@ -7,7 +7,7 @@ import { SmsVerificationComponent } from './components/pages/sms-verification/sm
 
 const routes: Routes = [
    { path : 'register', component : SignupComponent},
-   { path : 'smsVerification', component : SmsVerificationComponent},
+   { path : 'smsVerification/:userId', component : SmsVerificationComponent},
    { path : '', component : HomeComponent},
 ];
 

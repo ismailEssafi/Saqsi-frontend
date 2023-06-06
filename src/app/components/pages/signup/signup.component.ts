@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms'
 import { AuthService } from '../../../services/auth.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -8,7 +9,7 @@ import { AuthService } from '../../../services/auth.service'
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  constructor(private fb: FormBuilder, private authService : AuthService){}
+  constructor(private fb: FormBuilder, private authService : AuthService, private router: Router){}
 
   registerForm = this.fb.group({
     fullname: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]{3,20}$')]],
@@ -21,8 +22,11 @@ export class SignupComponent {
 
   onSubmit() : void{
     if (!this.registerForm.invalid){
-      this.authService.register(this.registerForm.value).subscribe((user) => {
-        console.log(user);
+      this.authService.register(this.registerForm.value).subscribe(user => {
+        if (user.status == 201){
+          console.log(user);
+          this.router.navigate(['/smsVerification', user.body.userId]);
+        }
       });
     }
   }
