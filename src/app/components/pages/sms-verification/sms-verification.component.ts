@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-sms-verification',
@@ -10,16 +11,23 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SmsVerificationComponent {
   private userId;
+  public errorMessage;
+  public goodMessage;
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {
     this.userId = 0;
+    this.errorMessage = '';
+    this.goodMessage = '';
   }
 
   ngOnInit() {
-    this.route.params.subscribe((params) => (this.userId = params['userId']));
+    this.activatedRoute.params.subscribe(
+      (params) => (this.userId = params['userId'])
+    );
   }
   smsForm = this.fb.group({
     input1: ['', [Validators.required, Validators.pattern('[0-9]{1}')]],
@@ -50,9 +58,31 @@ export class SmsVerificationComponent {
           this.smsForm.get('input4')?.value
         }`,
       };
-      this.authService.smsVerification(otpInfo).subscribe((response) => {
-        console.log(response);
-      });
+      this.authService.smsVerification(otpInfo).subscribe(
+        (response) => {
+          if (response.status == 202) {
+            this.router.navigate(['myProfile']);
+          }
+        },
+        (err: HttpErrorResponse) => {
+          if (err.status == 400 && err.error.message == 'invalid_otp') {
+            this.errorMessage =
+              'you insert the wrong sms code Please try again';
+          }
+          if (err.status == 400 && err.error.message == 'otp_expired') {
+            this.errorMessage =
+              'your sms code is expire, We sent new one Please check your phone';
+          }
+        }
+      );
     }
+  }
+  resendOTP() {
+    this.authService.resendOTP(this.userId).subscribe(
+      (response) => {
+        if (response.status == 200) {
+          this.goodMessage = 'we resend sms code'
+        }
+      });
   }
 }

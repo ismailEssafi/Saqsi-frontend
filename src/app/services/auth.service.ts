@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpParams, HttpResponse, HttpHeaders} from '@angular/common/http';
 import  { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -14,7 +14,11 @@ export class AuthService {
   }
 
   smsVerification(otpInfo: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/otpVerification`, otpInfo)
+    return this.http.post(`${this.apiUrl}/otpVerification`, otpInfo, {observe: 'response'})
+  }
+
+  resendOTP(userId: number): Observable<any> {
+    return this.http.post(`${this.apiUrl}/resendOTP/${userId}`,null , {observe: 'response'})
   }
   
 }

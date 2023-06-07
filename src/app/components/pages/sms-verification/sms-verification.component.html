@@ -1,5 +1,7 @@
 <div class="page-in-centre">
     <div class="dialog">
+      <h3 class="err-message" *ngIf="errorMessage != ''">{{errorMessage}}</h3>
+      <h3 class="good-message" *ngIf="goodMessage != ''">{{goodMessage}}</h3>
       <h3>Please enter the 4-digit verification code we sent via SMS:</h3>
       <form class="form" [formGroup]="smsForm" (ngSubmit)="onSubmit()">
         <input type="text" maxLength="1" size="1" min="0" max="9" formControlName="input1" />
@@ -14,8 +16,7 @@
       
       <div>
         Didn't receive the code?<br />
-        <a href="#">Send code again</a><br />
-        <a href="#">Change phone number</a>
+        <button (click)="resendOTP()" >Send code again</button><br />
       </div>
     </div>
   </div>

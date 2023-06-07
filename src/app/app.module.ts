@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './components/pages/signup/signup.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { SmsVerificationComponent } from './components/pages/sms-verification/sms-verification.component';
+import { MyProfileComponent } from './components/pages/my-profile/my-profile.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SmsVerificationComponent } from './components/pages/sms-verification/sm
     SignupComponent,
     HomeComponent,
     SmsVerificationComponent,
+    MyProfileComponent,
   ],
   imports: [
     BrowserModule,
