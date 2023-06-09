@@ -3,18 +3,7 @@ h3 {
     padding: 0;
     line-height: 1.25;
 }
-.err-message {
-    background-color: #e99999;
-    border: red 1px solid;
-    border-radius: 4px;
-    padding: 5px;
-}
-.good-message {
-    background-color: rgb(137, 223, 137);
-    border: green 1px solid;
-    border-radius: 4px;
-    padding: 5px;
-}
+
 span {
     font-size: 90%;
 }

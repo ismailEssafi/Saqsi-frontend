@@ -83,3 +83,15 @@ table {
 .btn-form:hover {
     background-color: #141414b3;
 }
+.err-message {
+    background-color: #e99999;
+    border: red 1px solid;
+    border-radius: 4px;
+    padding: 5px;
+}
+.good-message {
+    background-color: rgb(137, 223, 137);
+    border: green 1px solid;
+    border-radius: 4px;
+    padding: 5px;
+}

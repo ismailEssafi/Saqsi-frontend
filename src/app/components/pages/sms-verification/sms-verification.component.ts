@@ -11,6 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class SmsVerificationComponent {
   private userId;
+  private isFromLogin;
   public errorMessage;
   public goodMessage;
   constructor(
@@ -20,14 +21,16 @@ export class SmsVerificationComponent {
     private router: Router
   ) {
     this.userId = 0;
+    this.isFromLogin = '';
     this.errorMessage = '';
     this.goodMessage = '';
   }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(
-      (params) => (this.userId = params['userId'])
-    );
+    this.activatedRoute.params.subscribe((params) => {
+      this.userId = params['userId'];
+      this.isFromLogin = params['isFromLogin'];
+    });
   }
   smsForm = this.fb.group({
     input1: ['', [Validators.required, Validators.pattern('[0-9]{1}')]],
@@ -61,7 +64,12 @@ export class SmsVerificationComponent {
       this.authService.smsVerification(otpInfo).subscribe(
         (response) => {
           if (response.status == 202) {
-            this.router.navigate(['myProfile']);
+            if (this.isFromLogin == 'true') {
+              console.log(this.isFromLogin);
+              this.router.navigate(['']);
+            } else {
+              this.router.navigate(['/login']);
+            }
           }
         },
         (err: HttpErrorResponse) => {
@@ -78,11 +86,10 @@ export class SmsVerificationComponent {
     }
   }
   resendOTP() {
-    this.authService.resendOTP(this.userId).subscribe(
-      (response) => {
-        if (response.status == 200) {
-          this.goodMessage = 'we resend sms code'
-        }
-      });
+    this.authService.resendOTP(this.userId).subscribe((response) => {
+      if (response.status == 200) {
+        this.goodMessage = 'we resend sms code';
+      }
+    });
   }
 }

@@ -13,6 +13,10 @@ export class AuthService {
     return this.http.post(this.apiUrl, regiserForm, {observe: 'response'})
   }
 
+  login(loginForm: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/login`, loginForm, {observe: 'response'})
+  }
+
   smsVerification(otpInfo: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/otpVerification`, otpInfo, {observe: 'response'})
   }

@@ -24,7 +24,7 @@ export class SignupComponent {
     if (!this.registerForm.invalid){
       this.authService.register(this.registerForm.value).subscribe(user => {
         if (user.status == 201){
-          this.router.navigate(['/smsVerification', user.body.userId]);
+          this.router.navigate(['/smsVerification', user.body.userId, 'false']);
         }
       });
     }

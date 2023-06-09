@@ -1,0 +1,16 @@
+.form-control label {
+    display: block;
+    margin-bottom: 4px;
+    margin-top: 11px;
+}
+.form-control label::first-letter{
+    text-transform: uppercase;
+}
+.form-control input {
+    background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 4px 0;
+	width: 88%;
+}
+
