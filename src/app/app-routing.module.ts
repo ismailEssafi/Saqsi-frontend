@@ -6,12 +6,14 @@ import { HomeComponent } from './components/pages/home/home.component'
 import { SmsVerificationComponent } from './components/pages/sms-verification/sms-verification.component'
 import { MyProfileComponent } from './components/pages/my-profile/my-profile.component';
 import { SigninComponent} from './components/pages/signin/signin.component';
+import { ServerNotRespondingComponent } from './components/pages/server-not-responding/server-not-responding.component';
 
 const routes: Routes = [
    { path : 'myProfile', component : MyProfileComponent},
    { path : 'login', component : SigninComponent},
    { path : 'register', component : SignupComponent},
    { path : 'smsVerification/:userId/:isFromLogin', component : SmsVerificationComponent},
+   { path : 'Server-Not-Responding', component : ServerNotRespondingComponent},
    { path : 'home', component : HomeComponent},
    { path : '', component : HomeComponent},
    { path : '**', component : HomeComponent},

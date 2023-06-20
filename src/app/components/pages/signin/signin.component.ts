@@ -40,10 +40,10 @@ export class SigninComponent {
           }
         },
         (err: HttpErrorResponse) => {
-          if (err.status == 400) {
+          if (err.status == 401) {
             this.errorMessage = 'invalid phone number or password';
           }
-          if (err.status == 428) {
+          if (err.status == 406) {
             this.router.navigate(['/smsVerification', err.error.userId, 'true']);
           }
         }
