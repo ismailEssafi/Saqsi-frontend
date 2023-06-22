@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import {
   HttpRequest,
   HttpHandler,
@@ -19,14 +19,9 @@ export class AppInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
       tap(
-        (event) => {
-          if (event instanceof HttpResponse) {
-            console.log('event');
-            console.log(event);
-          }
-        },
+        (event) => {},
         (error) => {
-          if (error.status == 500){
+          if (error.status == 500) {
             this.router.navigate(['/Server-Not-Responding']);
           }
         }

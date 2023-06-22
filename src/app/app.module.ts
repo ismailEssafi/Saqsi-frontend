@@ -12,8 +12,11 @@ import { SmsVerificationComponent } from './components/pages/sms-verification/sm
 import { MyProfileComponent } from './components/pages/my-profile/my-profile.component';
 import { SigninComponent } from './components/pages/signin/signin.component';
 import { ServerNotRespondingComponent } from './components/pages/server-not-responding/server-not-responding.component';
+import { ForgotPaswordComponent } from './components/pages/forgot-pasword/forgot-pasword.component';
 
 import { AppInterceptor } from './interceptors/app.interceptor';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { ResetPasswordComponent } from './components/pages/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,8 @@ import { AppInterceptor } from './interceptors/app.interceptor';
     MyProfileComponent,
     SigninComponent,
     ServerNotRespondingComponent,
+    ForgotPaswordComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +38,7 @@ import { AppInterceptor } from './interceptors/app.interceptor';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

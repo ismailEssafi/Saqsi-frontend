@@ -44,7 +44,11 @@ export class SigninComponent {
             this.errorMessage = 'invalid phone number or password';
           }
           if (err.status == 406) {
-            this.router.navigate(['/smsVerification', err.error.userId, 'true']);
+            this.router.navigate([
+              '/smsVerification',
+              err.error.userId,
+              'login',
+            ]);
           }
         }
       );

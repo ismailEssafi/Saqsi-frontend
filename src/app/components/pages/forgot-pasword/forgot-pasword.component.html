@@ -1,6 +1,6 @@
 <div class="page-in-centre">
     <div class="dialog" >
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="phoneNumberForm" (ngSubmit)="onSubmit()">
             <div class="form-control">
                 <label for="phoneNumber">Phone Number :</label>
                 <input type="tel" name="phoneNumber" id="phoneNumber" formControlName="phoneNumber" placeholder="ente your Phone Number">
@@ -13,21 +13,8 @@
                         </div>
                     </div>
             </div>
-            <div class="form-control">
-                <label for="password">Password :</label>
-                <input type="password" name="password" id="password" formControlName="password" placeholder="ente password">
-                    <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="alert alert-danger">
-                        <div *ngIf="password?.errors?.['required']">
-                            Password is required.
-                        </div>
-                        <div *ngIf="password?.errors?.['minlength']">
-                            Password must contain 10 character minimum
-                        </div>
-                    </div>
-            </div>
             <h3 *ngIf="errorMessage != ''" class="err-message">{{errorMessage}}</h3>
-            <input class="btn-form" type="submit" value="login" ><br>
-            <a [routerLink]="['/forgotPasword']">forgot password</a>
+            <input class="btn-form" type="submit" value="submit" ><br>
         </form>
     </div>
 </div>

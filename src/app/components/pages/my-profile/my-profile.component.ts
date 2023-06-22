@@ -10,7 +10,6 @@ export class MyProfileComponent {
   constructor(private authService: AuthService) {}
   ngOnInit() {
     this.authService.test().subscribe((response) => {
-      console.log(response);
     });
   }
 }

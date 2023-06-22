@@ -20,7 +20,7 @@ export class AuthService {
 
   login(loginForm: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/login`, loginForm, {
-      observe: 'response'
+      observe: 'response',
     });
   }
 
@@ -36,10 +36,21 @@ export class AuthService {
     });
   }
 
+  renewAccessToken(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/renewAccessToken/`, {
+      observe: 'response',
+    });
+  }
+
+  forgotPassword(phoneNumber: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/forgotPassword/`, phoneNumber, {
+      observe: 'response',
+    });
+  }
+
   test(): Observable<any> {
     return this.http.post(`${this.apiUrl}/test`, null, {
       observe: 'response',
-      withCredentials: true,
     });
   }
 }

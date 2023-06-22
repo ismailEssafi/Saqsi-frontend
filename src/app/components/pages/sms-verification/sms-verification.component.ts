@@ -11,7 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class SmsVerificationComponent {
   private userId;
-  private isFromLogin;
+  private from;
   public errorMessage;
   public goodMessage;
   constructor(
@@ -21,7 +21,7 @@ export class SmsVerificationComponent {
     private router: Router
   ) {
     this.userId = 0;
-    this.isFromLogin = '';
+    this.from = '';
     this.errorMessage = '';
     this.goodMessage = '';
   }
@@ -29,7 +29,7 @@ export class SmsVerificationComponent {
   ngOnInit() {
     this.activatedRoute.params.subscribe((params) => {
       this.userId = params['userId'];
-      this.isFromLogin = params['isFromLogin'];
+      this.from = params['from'];
     });
   }
   smsForm = this.fb.group({
@@ -64,11 +64,14 @@ export class SmsVerificationComponent {
       this.authService.smsVerification(otpInfo).subscribe(
         (response) => {
           if (response.status == 202) {
-            if (this.isFromLogin == 'true') {
-              console.log(this.isFromLogin);
+            if (this.from == 'login') {
               this.router.navigate(['']);
-            } else {
+            } 
+            if (this.from == 'register'){
               this.router.navigate(['/login']);
+            }
+            if (this.from == 'forgotPass'){
+              this.router.navigate(['/resetPasword', otpInfo.codeOTP]);
             }
           }
         },
