@@ -48,6 +48,12 @@ export class AuthService {
     });
   }
 
+  resetPassword(resetPasswordInfo: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/resetPassword/`, resetPasswordInfo, {
+      observe: 'response',
+    });
+  }
+
   test(): Observable<any> {
     return this.http.post(`${this.apiUrl}/test`, null, {
       observe: 'response',

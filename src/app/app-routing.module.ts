@@ -13,7 +13,7 @@ import { ResetPasswordComponent } from './components/pages/reset-password/reset-
 const routes: Routes = [
   { path: 'myProfile', component: MyProfileComponent },
   { path: 'forgotPasword', component: ForgotPaswordComponent },
-  { path: 'resetPasword/:codeOTP', component: ResetPasswordComponent },
+  { path: 'resetPasword/:userId/:codeOTP', component: ResetPasswordComponent },
   { path: 'login', component: SigninComponent },
   { path: 'register', component: SignupComponent },
   {

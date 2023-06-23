@@ -71,7 +71,7 @@ export class SmsVerificationComponent {
               this.router.navigate(['/login']);
             }
             if (this.from == 'forgotPass'){
-              this.router.navigate(['/resetPasword', otpInfo.codeOTP]);
+              this.router.navigate(['/resetPasword', otpInfo.userId, otpInfo.codeOTP]);
             }
           }
         },
