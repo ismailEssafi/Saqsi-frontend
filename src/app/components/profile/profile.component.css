@@ -1,0 +1,42 @@
+.profile {
+display: flex;
+width: auto;
+height: 58vh;
+}
+
+.profile-info{
+    background-color: rgb(197, 113, 39);
+    padding-left: 2vw;
+    flex-basis: 50%;
+}
+.profile-imgs{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(30, 100, 165);
+    flex-basis: 50%;
+}
+.profile-imgs img{
+    flex-basis: 50%;
+    width:19vw;
+    height:29vh
+}
+.profile-info-basic{
+    padding-top: 3vh;
+    padding-left: 6vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5vw;
+}
+.profile-img{
+    border-radius: 50%;
+    width: 16vw;
+}
+.profile-info-plus{
+    padding: 14px 10px 10px 0px; 
+    display: flex;
+    flex-direction: column;
+}
+.profile-info-plus > *{
+    margin-bottom: 1.5vh;
+}

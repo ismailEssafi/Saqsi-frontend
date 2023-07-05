@@ -1,0 +1,30 @@
+.feedback-list{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: 58vh;
+}
+.feedback-list > span {
+    padding: 10px;
+    font-size:medium;
+}
+.feedback{
+    margin: 2px;
+    padding: 2px;
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    border-radius: 5px;
+}
+.user{
+    display: flex;
+    align-items: center;
+}
+.user img{
+    width: 9vw;
+    height: 13vh;
+    border-radius: 50%;
+}
+.user > span {
+    margin-left: auto;
+    align-self:flex-start;
+
+}
