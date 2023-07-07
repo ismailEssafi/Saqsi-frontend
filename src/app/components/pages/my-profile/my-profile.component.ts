@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
+import { ActivatedRoute } from '@angular/router';
+import { ProService } from 'src/app/services/pro.service';
 
 @Component({
   selector: 'app-my-profile',
@@ -7,9 +8,23 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./my-profile.component.css'],
 })
 export class MyProfileComponent {
-  constructor(private authService: AuthService) {}
+  private userId;
+  constructor(
+    private proService: ProService,
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.userId = '';
+  }
+  pro : any;
   ngOnInit() {
-    this.authService.test().subscribe((response) => {
+    this.activatedRoute.params.subscribe((params) => {
+      this.userId = params['userId'];
+    });
+    this.proService.getProAllInfo(this.userId).subscribe((response) => {
+      if(response.status = 202){
+        console.log(response.body);
+        this.pro = response.body;
+      }
     });
   }
 }

@@ -19,6 +19,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ResetPasswordComponent } from './components/pages/reset-password/reset-password.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FeedbacksComponent } from './components/feedbacks/feedbacks.component';
+import { RatingStarsComponent } from './components/rating-stars/rating-stars.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { FeedbacksComponent } from './components/feedbacks/feedbacks.component';
     ResetPasswordComponent,
     ProfileComponent,
     FeedbacksComponent,
+    RatingStarsComponent,
   ],
   imports: [
     BrowserModule,

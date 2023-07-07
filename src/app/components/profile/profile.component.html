@@ -3,28 +3,26 @@
     <div class="profile-info-basic">
       <img
         class="profile-img"
-        src="https://wfhann.com/media/bodyimg-plumbing.jpg"
+        src={{pro?.profile_img}}
       />
       <div class="basic-info">
-        <span class="fullname">Ismail Essafi</span><br />
-        <span class="expertise">Plumber</span>
+        <span class="fullname">{{pro?.fullname}}</span><br />
+        <span class="expertise">{{pro?.professional?.profession}}</span>
         <div class="rating">
-          <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>4.8</span>
+          <app-rating-stars [rating]="pro?.professional?.rating"></app-rating-stars>
         </div>
       </div>
     </div>
     <div class="profile-info-plus">
-      <div class="phone-number">0612568799</div>
-      <div class="skils-list">skill-skill-skill-skill-skill-skill</div>
-      <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-        numquam</div>
+      <div class="phone-number">{{pro?.phoneNumber.replace('+212','0')}}</div>
+      <div class="skils-list">{{pro?.professional?.pro_skills[5].skill}}-{{pro?.professional?.pro_skills[4].skill}}-{{pro?.professional?.pro_skills[3].skill}}-{{pro?.professional?.pro_skills[2].skill}}-{{pro?.professional?.pro_skills[1].skill}}-{{pro?.professional?.pro_skills[0].skill}}</div>
+      <div class="description">{{pro?.professional?.description}}</div>
     </div>
   </div>
   <div class="profile-imgs">
-    <img src="https://www.ziprecruiter.com/svc/fotomat/public-ziprecruiter/uploads/job_description_template/Plumber.jpg">
-    <img src="https://www.shutterstock.com/image-photo/plumber-fixing-flush-toilet-260nw-66443836.jpg">
-    <img src="https://www.johnmooreservices.com/wp-content/uploads/2016/07/Plumbing-Systems-862x539.jpg">
-    <img src="https://jobdescriptionandresumeexamples.com/wp-content/uploads/2017/03/Plumber.jpg">
+    <img src={{pro?.professional?.pro_imgs[0].img}}>
+    <img src={{pro?.professional?.pro_imgs[1].img}}>
+    <img src={{pro?.professional?.pro_imgs[2].img}}>
+    <img src={{pro?.professional?.pro_imgs[3].img}}>
   </div>
 </div>
