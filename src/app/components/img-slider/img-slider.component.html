@@ -1,0 +1,8 @@
+<div #container [ngStyle]="{width: 300+'px'}" style="height: 209px;text-align:center;margin:0; padding:0;">
+   <button class="close-button" mat-raised-button mat-dialog-close  >
+      <i  id="closeIcon" class="fa fa-times" aria-hidden="true"></i>
+   </button>
+   
+   <ng-image-slider [images]="imageObject" [infinite]="false" [manageImageRatio]=true [autoSlide]="1"
+     [animationSpeed]="0.1" [imageSize]="{width: container.style.width, space:0}" slideImage="1"></ng-image-slider>
+ </div>

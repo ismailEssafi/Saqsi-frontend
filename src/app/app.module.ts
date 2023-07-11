@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgImageSliderModule } from 'ng-image-slider'
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -13,13 +14,20 @@ import { MyProfileComponent } from './components/pages/my-profile/my-profile.com
 import { SigninComponent } from './components/pages/signin/signin.component';
 import { ServerNotRespondingComponent } from './components/pages/server-not-responding/server-not-responding.component';
 import { ForgotPaswordComponent } from './components/pages/forgot-pasword/forgot-pasword.component';
-
-import { AppInterceptor } from './interceptors/app.interceptor';
-import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ResetPasswordComponent } from './components/pages/reset-password/reset-password.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FeedbacksComponent } from './components/feedbacks/feedbacks.component';
 import { RatingStarsComponent } from './components/rating-stars/rating-stars.component';
+import { ImgSliderComponent } from './components/img-slider/img-slider.component';
+
+import { AppInterceptor } from './interceptors/app.interceptor';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button'
+import { MatDialogModule } from '@angular/material/dialog'
+import { MAT_DIALOG_DATA } from '@angular/material/dialog'
+import { MatDialogRef } from '@angular/material/dialog'
+import { MatIconModule } from '@angular/material/icon'
 
 @NgModule({
   declarations: [
@@ -35,16 +43,24 @@ import { RatingStarsComponent } from './components/rating-stars/rating-stars.com
     ProfileComponent,
     FeedbacksComponent,
     RatingStarsComponent,
+    ImgSliderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatIconModule,
+    NgImageSliderModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+    { provide: MatDialogRef, useValue: {} }
   ],
   bootstrap: [AppComponent],
 })

@@ -1,0 +1,21 @@
+  
+#closeIcon {
+    font-size: 29px;
+    transition: 1s ease-in-out;
+    z-index: 10;
+}
+.close-button{
+    position: absolute !important;
+    width: 47px;
+    height: 41px;
+    right: 21px;
+    top: 6px;
+    box-shadow: unset;
+    background: transparent;
+}
+.close-button:hover{
+    background: transparent ;
+}
+.close-icon:hover {
+    transform: rotate(180deg);
+}

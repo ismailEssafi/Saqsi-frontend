@@ -1,4 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { ImgSliderComponent } from '../img-slider/img-slider.component'
+import { MatDialog } from '@angular/material/dialog'
+
 
 @Component({
   selector: 'app-profile',
@@ -7,4 +10,15 @@ import { Component, Input } from '@angular/core';
 })
 export class ProfileComponent {
   @Input() pro: any;
+  constructor( private matDialog: MatDialog){}
+
+  openDialog(){
+    this.matDialog.open(ImgSliderComponent,{
+      data: {
+        pro_imgs: this.pro.professional.pro_imgs
+      },
+      width:'fit-content',
+      height: 'fit-content',
+    })
+  }
 }
