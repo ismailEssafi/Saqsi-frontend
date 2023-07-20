@@ -4,6 +4,7 @@
       <img
         class="profile-img"
         src={{pro?.profile_img}}
+        (click)="openUploadProfileImg()"
       />
       <div class="basic-info">
         <span class="fullname">{{pro?.fullname}}</span><br />
@@ -21,8 +22,8 @@
   </div>
   <div class="profile-imgs">
     <img src={{pro?.professional?.pro_imgs[0].img}}>
-    <img src={{pro?.professional?.pro_imgs[1].img}}>
+    <img src={{pro?.professional?.pro_imgs[1].img}} (click)="openEditProImgs()">
     <img src={{pro?.professional?.pro_imgs[2].img}}>
-    <img src={{pro?.professional?.pro_imgs[3].img}} (click)="openDialog()">
+    <img src={{pro?.professional?.pro_imgs[3].img}} (click)="openImgSlider()">
   </div>
 </div>

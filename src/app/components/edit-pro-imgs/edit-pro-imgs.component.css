@@ -1,0 +1,23 @@
+.editImgPro{
+    display: flex;
+    flex-wrap: wrap;
+    width: 78vw;
+    height: 70vh;
+}
+.editImgPro img{
+    width: 20vw;
+    height: 20vh;
+    padding: 17px;
+    margin: 17px;
+    border: solid black;
+}
+img-box {
+    position: relative;
+}
+i {
+    position: absolute;
+    top: 3px;
+    left: 293px;
+    font-size: 32px;
+    z-index: 10;    
+}

@@ -27,7 +27,9 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatDialogModule } from '@angular/material/dialog'
 import { MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { MatDialogRef } from '@angular/material/dialog'
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import { UploadProfileImgComponent } from './components/upload-profile-img/upload-profile-img.component';
+import { EditProImgsComponent } from './components/edit-pro-imgs/edit-pro-imgs.component'
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { MatIconModule } from '@angular/material/icon'
     FeedbacksComponent,
     RatingStarsComponent,
     ImgSliderComponent,
+    UploadProfileImgComponent,
+    EditProImgsComponent,
   ],
   imports: [
     BrowserModule,
