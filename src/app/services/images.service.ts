@@ -14,4 +14,8 @@ export class ImagesService {
     formData.append('file', file, file.name);
     return this.http.post(`${this.apiUrl}/editProfileImg`, formData, { observe: 'response' });
   }
+
+  deleteImg(imgId: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/deleteImg/${imgId}`, { observe: 'response' });
+  }
 }

@@ -36,12 +36,16 @@ export class ProfileComponent {
   }
 
   openEditProImgs(){
-    this.matDialog.open(EditProImgsComponent,{
+    let dialogRef = this.matDialog.open(EditProImgsComponent,{
       data: {
         pro_imgs: this.pro.professional.pro_imgs
       },
       width:'fit-content',
       height: 'fit-content',
+    })
+
+    dialogRef.afterClosed().subscribe(response => {
+      this.pro.professional.pro_imgs = response.pro_imgs;
     })
   }
 }
