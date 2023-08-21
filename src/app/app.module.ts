@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgImageSliderModule } from 'ng-image-slider'
+import { NgImageSliderModule } from 'ng-image-slider';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -19,17 +19,18 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { FeedbacksComponent } from './components/feedbacks/feedbacks.component';
 import { RatingStarsComponent } from './components/rating-stars/rating-stars.component';
 import { ImgSliderComponent } from './components/img-slider/img-slider.component';
+import { EditProImgsComponent } from './components/edit-pro-imgs/edit-pro-imgs.component';
+import { UpdateProfileinfoComponent } from './components/update-profileinfo/update-profileinfo.component';
 
 import { AppInterceptor } from './interceptors/app.interceptor';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button'
-import { MatDialogModule } from '@angular/material/dialog'
-import { MAT_DIALOG_DATA } from '@angular/material/dialog'
-import { MatDialogRef } from '@angular/material/dialog'
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { UploadProfileImgComponent } from './components/upload-profile-img/upload-profile-img.component';
-import { EditProImgsComponent } from './components/edit-pro-imgs/edit-pro-imgs.component'
+
 
 @NgModule({
   declarations: [
@@ -46,8 +47,8 @@ import { EditProImgsComponent } from './components/edit-pro-imgs/edit-pro-imgs.c
     FeedbacksComponent,
     RatingStarsComponent,
     ImgSliderComponent,
-    UploadProfileImgComponent,
     EditProImgsComponent,
+    UpdateProfileinfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +65,7 @@ import { EditProImgsComponent } from './components/edit-pro-imgs/edit-pro-imgs.c
     { provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: MAT_DIALOG_DATA, useValue: {} },
-    { provide: MatDialogRef, useValue: {} }
+    { provide: MatDialogRef, useValue: {} },
   ],
   bootstrap: [AppComponent],
 })

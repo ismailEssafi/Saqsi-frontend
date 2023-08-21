@@ -13,7 +13,7 @@ import { Observable, of } from 'rxjs';
 export class AuthService {
   private apiUrl = 'http://localhost:3000/users';
   constructor(private http: HttpClient) {}
-
+  
   register(regiserForm: any): Observable<any> {
     return this.http.post(this.apiUrl, regiserForm, { observe: 'response' });
   }
@@ -55,7 +55,12 @@ export class AuthService {
   }
 
   test(): Observable<any> {
-    return this.http.post(`${this.apiUrl}/test`, null, {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer 1|dXlsqqIvFQEr0OYt0du6ggjQp0QeWkR43MXvZXsB`,
+    });
+    return this.http.get(`http://127.0.0.1:8000/api/photos-libraries/5`, {
+      headers: headers, 
       observe: 'response',
     });
   }

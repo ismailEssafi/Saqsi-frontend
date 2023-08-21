@@ -1,0 +1,17 @@
+<div class="profile-info">
+    <div class="profile-info-basic">
+      <img
+        class="profile-img"
+        src={{data?.pro?.profile_img}}
+      />
+      <div class="basic-info">
+        <span class="fullname">{{data?.pro?.fullname}}</span><br />
+        <span class="expertise">{{data?.pro?.professional?.profession}}</span>
+      </div>
+    </div>
+    <div class="profile-info-plus">
+      <div class="phone-number">{{data?.pro?.phoneNumber.replace('+212','0')}}</div>
+      <div class="skils-list">{{data?.pro?.professional?.pro_skills[5].skill}}-{{data?.pro?.professional?.pro_skills[4].skill}}-{{data?.pro?.professional?.pro_skills[3].skill}}-{{data?.pro?.professional?.pro_skills[2].skill}}-{{data?.pro?.professional?.pro_skills[1].skill}}-{{data?.pro?.professional?.pro_skills[0].skill}}</div>
+      <div class="description">{{data?.pro?.professional?.description}}</div>
+    </div>
+  </div>

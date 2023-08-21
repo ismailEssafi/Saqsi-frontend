@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog'
 import { ImgSliderComponent } from '../img-slider/img-slider.component'
-import { UploadProfileImgComponent } from '../upload-profile-img/upload-profile-img.component';
+import { UpdateProfileinfoComponent } from '../update-profileinfo/update-profileinfo.component';
 import { EditProImgsComponent } from '../edit-pro-imgs/edit-pro-imgs.component';
 
 
@@ -24,9 +24,9 @@ export class ProfileComponent {
     })
   }
 
-  openUploadProfileImg(){
-    let dialogRef = this.matDialog.open(UploadProfileImgComponent,{
-      data: {},
+  openUpdateProfileinfo(){
+    let dialogRef = this.matDialog.open(UpdateProfileinfoComponent,{
+      data: { pro : this.pro },
       width:'fit-content',
       height: 'fit-content',
     })

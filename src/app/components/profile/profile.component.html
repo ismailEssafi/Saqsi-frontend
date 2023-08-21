@@ -1,10 +1,10 @@
 <div class="profile">
   <div class="profile-info">
+    <button class="update-profile-info" (click)="openUpdateProfileinfo()"><i class="fa fa-pencil-square" aria-hidden="true"></i></button>
     <div class="profile-info-basic">
       <img
         class="profile-img"
         src={{pro?.profile_img}}
-        (click)="openUploadProfileImg()"
       />
       <div class="basic-info">
         <span class="fullname">{{pro?.fullname}}</span><br />

@@ -3,11 +3,21 @@ display: flex;
 width: auto;
 height: 58vh;
 }
+.update-profile-info{
+    position: absolute;
+    right: 4vw;
+    top: 6vh;
+    border: none;
+    background: none;
+    font-size: 33px;
+    cursor: pointer;
+}
 
 .profile-info{
     background-color: rgb(197, 113, 39);
     padding-left: 2vw;
     flex-basis: 50%;
+    position: relative;
 }
 .profile-imgs{
     display: flex;
@@ -30,7 +40,9 @@ height: 58vh;
 }
 .profile-img{
     border-radius: 50%;
-    width: 16vw;
+    width:  13vw;
+    height: 27vh;
+    object-fit: cover;
 }
 .profile-info-plus{
     padding: 14px 10px 10px 0px; 
