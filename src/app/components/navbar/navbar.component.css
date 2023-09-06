@@ -1,0 +1,48 @@
+.container{
+    display: flex;
+    align-items: center;
+    background-color: #000080;
+    color: #FFFFFF;
+    padding: 1.2rem 0rem;
+}
+
+li
+{
+    display: inline;
+}
+a{
+    text-decoration: none;
+    color:inherit;
+    font-size: 24px;
+    font-weight: 500;
+    padding-left:1em;
+}
+ul{
+    margin-left: auto;
+    font-size: 16px;
+    margin-right: 1.6rem;
+}
+ul li {
+    font-weight: 500;
+    margin: 0em 1.1em;
+    cursor: pointer;
+}
+ul li:hover {
+    color: #FFD700;
+}
+ul button{
+    appearance: none;
+    background-color: #FFA500;
+    border: 1px solid #FFD700;
+    border-radius: 100px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 0.5rem 2rem;
+    text-decoration: none;
+}
+i {
+    font-size: 24px;
+}
+

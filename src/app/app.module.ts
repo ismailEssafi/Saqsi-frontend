@@ -30,6 +30,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { NavbarComponent } from './Components/navbar/navbar.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { MatIconModule } from '@angular/material/icon';
     ImgSliderComponent,
     EditProImgsComponent,
     UpdateProfileinfoComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

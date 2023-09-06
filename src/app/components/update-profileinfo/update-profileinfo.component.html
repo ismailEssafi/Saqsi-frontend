@@ -4,14 +4,64 @@
         class="profile-img"
         src={{data?.pro?.profile_img}}
       />
-      <div class="basic-info">
-        <span class="fullname">{{data?.pro?.fullname}}</span><br />
-        <span class="expertise">{{data?.pro?.professional?.profession}}</span>
-      </div>
+      <form [formGroup]="updateInfoForm">
+        <div class="basic-info">
+          <div class="form-control">
+            <label for="fullname">Fullname :</label>
+            <input type="text" name="fullname" id="fullname" formControlName="fullname" placeholder="ente your fullname">
+                <div *ngIf="fullname?.invalid && (fullname?.dirty || fullname?.touched)" class="alert alert-danger">
+                    <div *ngIf="fullname?.errors?.['required']">
+                        fullname is required.
+                    </div>
+                    <div *ngIf="fullname?.errors?.['pattern']">
+                      Please enter a valid string.
+                    </div>
+                </div>
+          </div>
+          <div class="form-control">
+            <label for="expertise">Expertise :</label>
+            <input type="text" name="expertise" id="expertise" formControlName="expertise" placeholder="entre your Expertise" value="{{data?.pro?.expertise}}">
+                <div *ngIf="expertise?.invalid && (expertise?.dirty || expertise?.touched)" class="alert alert-danger">
+                    <div *ngIf="expertise?.errors?.['required']">
+                        expertise is required.
+                    </div>
+                </div>
+          </div>
+          <div class="form-control">
+            <label for="phoneNumber">Phone Number :</label>
+            <input type="tel" name="phoneNumber" id="phoneNumber" formControlName="phoneNumber" placeholder="ente your Phone Number" value="{{data?.pro?.phoneNumber}}">
+                <div *ngIf="phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched)" class="alert alert-danger">
+                    <div *ngIf="phoneNumber?.errors?.['required']">
+                        PhoneNumber is required.
+                    </div>
+                    <div *ngIf="phoneNumber?.errors?.['pattern']">
+                        PhoneNumber must be like this 0618139890
+                    </div>
+                </div>
+          </div>
+          <div class="form-control">
+            <label for="description">Description :</label>
+            <input type="text" name="description" id="description" formControlName="description" placeholder="ente your Phone Number" value="{{data?.pro?.description}}">
+                <div *ngIf="description?.invalid && (description?.dirty || description?.touched)" class="alert alert-danger">
+                    <div *ngIf="description?.errors?.['required']">
+                        description is required.
+                    </div>
+                </div>
+          </div>
+        </div>
+        <div class="form-control skills">
+          <div formArrayName="skills">
+            <label for="expertise">Skills :</label>
+            <div *ngFor="let item of skills.controls; let i = index">
+              <input type="text" [formControlName]="i" value="{{item}}">
+              <div *ngIf="skills.controls[i]?.invalid && (skills.controls[i]?.dirty || skills.controls[i]?.touched)">
+                <div *ngIf="skills.controls[i]?.errors?.['required']">This field is required.</div>
+                <div *ngIf="skills.controls[i]?.errors?.['pattern']">Please enter a valid string.</div>
+              </div>
+              <button (click)="removeSkillItem(i)">Remove</button>
+            </div>
+          </div>
+          <button (click)="addSkillItem()">Add Item</button>
+        </div>
+      </form>
     </div>
-    <div class="profile-info-plus">
-      <div class="phone-number">{{data?.pro?.phoneNumber.replace('+212','0')}}</div>
-      <div class="skils-list">{{data?.pro?.professional?.pro_skills[5].skill}}-{{data?.pro?.professional?.pro_skills[4].skill}}-{{data?.pro?.professional?.pro_skills[3].skill}}-{{data?.pro?.professional?.pro_skills[2].skill}}-{{data?.pro?.professional?.pro_skills[1].skill}}-{{data?.pro?.professional?.pro_skills[0].skill}}</div>
-      <div class="description">{{data?.pro?.professional?.description}}</div>
-    </div>
-  </div>

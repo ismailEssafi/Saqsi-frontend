@@ -19,11 +19,6 @@
         height: 27vh;
         object-fit: cover;
     }
-    .profile-info-plus{
-        padding: 14px 10px 10px 0px; 
-        display: flex;
-        flex-direction: column;
-    }
-    .profile-info-plus > *{
-        margin-bottom: 1.5vh;
+    .skills{
+        
     }
