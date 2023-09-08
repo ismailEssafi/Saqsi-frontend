@@ -1,0 +1,65 @@
+.banner{
+    display: flex;
+    justify-content: center;
+    color: var(--primary-color);
+    height: 90vh;
+    position: relative;
+}
+.banner img{
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    padding: 0px;
+}
+.image1{
+    position: absolute;
+    top: 3.5vh;
+    left: 3vw;
+    border: 5px solid var(--primary-color);
+
+}
+.image2{
+    position: absolute;
+    top: 8vh;
+    right: 6vw;
+    border: 5px solid var(--highlight-color);
+
+}
+.image3{
+    position: absolute;
+    top: 48vh;
+    left: 18vw;
+    border: 5px solid var(--secondary-color3);
+
+}
+.image4{
+    position: absolute;
+    top: 54vh;
+    right: 20vw;
+    border: 5px solid var(--accent-color);
+
+}
+.page{
+    height: 90vh;
+}
+.app-description{
+    width: 40rem;
+    text-align: center;
+}
+.app-description p {
+    padding-inline: 1rem;
+    margin-top: 1.6rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.app-description img{
+    width: 2.5rem;
+}
+.app-description h1{
+    margin-top: 22vh;
+    font-weight: 600;
+    font-size: 2.5rem;
+}
+.top-notch{
+   color: var(--highlight-color);
+}
